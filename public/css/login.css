@@ -1,0 +1,22 @@
+.title-login
+{
+
+    border-bottom: 2px solid #a5ced8;
+    color: #5a6876;
+    margin-bottom: .5em;
+
+}
+
+.row
+{
+    margin-bottom: 200px;
+    padding-top: 56px;
+
+}
+
+.col-md-12
+{
+    background: #fff;
+    padding-bottom: 20px;
+
+}

@@ -1,0 +1,69 @@
+body{
+    background-image: url(/images/fondo.jpg);
+    margin-top: 0%;
+    height: 98vh;
+    width: 194.5vh;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    font-family: 'Oswald', sans-serif;
+}
+
+td{
+    color: white;
+    font-size: 2em;
+    font-family: 'Oswald', sans-serif;
+}
+
+th{
+    color: white;
+    font-size: 2em;
+    font-family: 'Oswald', sans-serif;
+}
+
+.overlay {
+    top: 5.5%;
+    position: absolute;
+    width: 100%;
+    height: 94.5%;
+    background-color: #080d15;
+    opacity: .9;
+}
+
+.search{
+    color:white;
+    border:none;
+    font-size: 3em;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    height: 100px;
+    background: transparent;
+}
+
+::-webkit-input-placeholder { /* Chrome */
+    font-size: 1.3em;
+    color:black;
+    font: bold;
+}
+:-moz-placeholder { /* Firefox 1-18 */
+    font-size: 1.3em;
+    color:#5cb85c;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    font-size: 1.3em;
+    color:#5cb85c;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    font-size: 1.3em;
+    color:#5cb85c;
+}
+h1{
+    font-family: 'Oswald', sans-serif;
+    color:white;
+}
+.login{
+    width: 100%;
+}
+.login a{
+    font-family: 'Oswald', sans-serif;
+    font-size: 2em;
+}

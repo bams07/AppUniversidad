@@ -1,0 +1,29 @@
+/*Users */
+#btn-modal-edit
+{
+    width: 100%;
+
+}
+
+.title-top-table
+{
+
+    border-bottom: 2px solid #a5ced8;
+    color: #5a6876;
+    margin-bottom: .5em;
+}
+
+/*Student */
+
+.image-student-create , .image-student-edit , .image-student-show
+{
+    border-radius: 100px;
+    margin-bottom: 24px;
+}
+
+.image-student-list
+{
+    border-radius: 100px;
+    height: 123px;
+    width: 133px;
+}
