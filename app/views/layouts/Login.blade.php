@@ -22,9 +22,6 @@
       @yield('menu')
 
 
-       <!--div con class container-->
-
-           @yield('content')<!--Aqui va el contenido que va a tener container con el contenido content-->
 
 
          <!--div con class footer-->

@@ -8,17 +8,10 @@
 Login
 @stop
 
-@section('content')
-
-
-
 <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
 
   <!-- Overlay -->
   <div class="overlay"></div>
-
-
-
 
 
   <!-- Wrapper for slides -->
@@ -41,8 +34,6 @@ Login
             <h1 class="title-login">Universidad Tecnica Nacional</h1>
 
 
-
-
                 <div class="form-group">
 
                 {{--Recive un mensaje por session el cual muestra un error si fuera el caso --}}
@@ -61,7 +52,7 @@ Login
                 {{Form::label('username','Username:')}}
 
                 <div class="input-group">
-                  <span class="input-group-addon">
+                  <span class="input-group-addon transparent">
                     <span class="glyphicon glyphicon-user"></span>
                   </span>
                   {{Form::text('username','',array('id'=>'username','class'=>'form-control transparent','placeholder'=>'Username'))}}
@@ -72,7 +63,7 @@ Login
 
                  {{Form::label('password','Password:')}}
                  <div class="input-group">
-                      <span class="input-group-addon">
+                      <span class="input-group-addon transparent">
                       <span class="glyphicon glyphicon-lock"></span>
                        </span>
                  {{Form::password('password',array('id'=>'password','class'=>'form-control transparent','placeholder'=>'Password'))}}
@@ -93,6 +84,3 @@ Login
                					</div>
                 </div>
 
-
-
-@stop

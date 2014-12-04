@@ -98,13 +98,13 @@ label{
     background-repeat: no-repeat;
 }
 .fade-carousel .slides .slide-1 {
-    background-image: url(/images/slide1.jpg);
+    background-image: url(/images/login1.jpg);
 }
 .fade-carousel .slides .slide-2 {
-    background-image: url(/images/slide2.jpg);
+    background-image: url(/images/login2.jpg);
 }
 .fade-carousel .slides .slide-3 {
-    background-image: url(/images/slide3.jpg);
+    background-image: url(/images/login3.jpg);
 }
 
 /********************************/
