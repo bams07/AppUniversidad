@@ -21,7 +21,6 @@
      <a type="button" class="btn btn-primary pull-right login" href="admin/login">
                         <span class="glyphicon glyphicon-log-in"></span> Login
                      </a>
-
     </div>
     </div>
     <div class="overlay">

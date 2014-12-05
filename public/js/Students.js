@@ -188,11 +188,6 @@ $(document).ready(function () {
 
     });
     // -------------- Fin metodo cargar imagen
-
-
-
-
-
 });
 
 

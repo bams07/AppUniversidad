@@ -119,7 +119,6 @@ class CreateSchema extends Migration
         });
 
 
-
         //TABLA CURSOS DE CADA PROYECTO
         /*Schema::create('coursesprojects', function ($table) {
 

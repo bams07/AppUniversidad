@@ -83,13 +83,7 @@ class SearchController extends \BaseController {
             ->orderBy('technologiesused.idproject', 'asc')
             ->get();
 
-        /*$projects = DB::table('projects')
-            ->join('technologiesused', 'projects.idproject', '=', 'technologiesused.idproject')
-            ->where('technologiesused.idstudent', '=' , $id)
-            ->join('technologies', 'technologiesused.idtechnology', '=', 'technologies.idtechnology')
-            ->select('projects.idstudent',  'projects.duration', 'projects.description', 'projects.date', 'projects.score','technologies.technology' )
-            ->orderBy('technologiesused.idproject', 'asc')
-            ->get();*/
+
 
 
         $commentaries = DB::table('commentaries')

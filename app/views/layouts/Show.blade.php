@@ -59,7 +59,6 @@
                               <span class="glyphicon glyphicon-comment"> </span>
                               <h3 class="panel-title">
                                   Recent Comments</h3>
-
                           </div>
                           <div class="panel-body">
                               <ul class="list-group">

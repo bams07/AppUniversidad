@@ -154,6 +154,7 @@ $(document).ready(function () {
 
                 }
                 document.getElementById('comment').innerHTML = $comments;
+
             });
         });
     }
