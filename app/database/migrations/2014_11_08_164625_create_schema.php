@@ -73,6 +73,7 @@ class CreateSchema extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->string('image');
+            $table->string('english_level');
             $table->integer('idcareer')->unsigned();
         });
 
