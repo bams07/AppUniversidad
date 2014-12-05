@@ -21,15 +21,8 @@
 
       @yield('menu')
 
-      <!--div con class top-->
-      <div clas="top">
-         @yield('tittle')<!--Aqui va el contenido que va a tener top con el contenido tittle-->
-      </div><!--fin div top-->
 
-       <!--div con class container-->
-        <div class="container">
-           @yield('content')<!--Aqui va el contenido que va a tener container con el contenido content-->
-        </div><!--fin div container-->
+
 
          <!--div con class footer-->
           <div class="footer">

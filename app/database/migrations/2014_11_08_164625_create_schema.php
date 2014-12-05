@@ -142,6 +142,7 @@ class CreateSchema extends Migration
             $table->engine = 'InnoDB';
             $table->increments('idcommentary');
             $table->integer('idstudent')->unsigned();
+            $table->integer('iduser')->unsigned();
             $table->date('date');
             $table->string('commentary');
             //$table->primary('idcommentary');
@@ -150,6 +151,7 @@ class CreateSchema extends Migration
         //LLAVES FORANEAS DE LA TABLA COMENTARIOS DEL ESTUDIANTE CON LA TABLA ESTUDIANTES
         Schema::table('commentaries', function ($table) {
             $table->foreign('idstudent')->references('idstudent')->on('students');
+            $table->foreign('iduser')->references('idUser')->on('users');
         });
 
         //TABLA TECNOLOGIAS USADA EN EL PROYECTO DEL ESTUDIANTE

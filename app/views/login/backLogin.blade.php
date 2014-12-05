@@ -2,46 +2,37 @@
 
 @section('css')
    {{ HTML::style('css/login.css'); }}
+
 @stop
 @section('title_browser')
 Login
 @stop
 
-@section('js')
- {{ HTML::script('js/Carrousel.js'); }}
-@stop
+<div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
 
-@section('content')
-
-        <div class="row">
+  <!-- Overlay -->
+  <div class="overlay"></div>
 
 
-            <div class="col-md-12">
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item slides active">
+      <div class="slide-1"></div>
+    </div>
+    <div class="item slides">
+      <div class="slide-2"></div>
+    </div>
+    <div class="item slides">
+      <div class="slide-3"></div>
+    </div>
+  </div>
+
+</div>
+
+ <div class="col-md-6 login">
 
             <h1 class="title-login">Universidad Tecnica Nacional</h1>
 
-               <div class="col-md-6">
-                <div id="slide" class="carousel slide">
-
-               {{--}}{{ HTML::image('images/estudiantes.jpg') }}--}}
-                <!-- Bloque para las imágenes -->
-                 <div class="carousel-inner">
-                   <div class="item active">
-                      {{ HTML::image('images/estudiantes.jpg') }}
-                   </div>
-                   <div class="item">
-                      {{ HTML::image('images/Koala.jpg') }}
-
-                   </div>
-                   <div class="item">
-                     {{ HTML::image('images/Lighthouse.jpg') }}
-
-                   </div>
-                 </div>
-               </div>
-               </div>
-
-                    <div class="col-md-6">
 
                 <div class="form-group">
 
@@ -61,10 +52,10 @@ Login
                 {{Form::label('username','Username:')}}
 
                 <div class="input-group">
-                  <span class="input-group-addon">
+                  <span class="input-group-addon transparent">
                     <span class="glyphicon glyphicon-user"></span>
                   </span>
-                  {{Form::text('username','',array('id'=>'username','class'=>'form-control','placeholder'=>'Username'))}}
+                  {{Form::text('username','',array('id'=>'username','class'=>'form-control transparent','placeholder'=>'Username'))}}
                 </div>
 
                 </div>
@@ -72,17 +63,17 @@ Login
 
                  {{Form::label('password','Password:')}}
                  <div class="input-group">
-                      <span class="input-group-addon">
+                      <span class="input-group-addon transparent">
                       <span class="glyphicon glyphicon-lock"></span>
                        </span>
-                 {{Form::password('password',array('id'=>'password','class'=>'form-control','placeholder'=>'Password'))}}
+                 {{Form::password('password',array('id'=>'password','class'=>'form-control transparent','placeholder'=>'Password'))}}
                   </div>
                  </div>
 
                  <div class="form-group">
 
-                 <button type="submit" class="btn btn-primary pull-right">
-                    <span class="glyphicon glyphicon-log-in"></span>Login
+                 <button type="submit" class="btn btn-primary pull-right btn-login">
+                    <span class="glyphicon glyphicon-log-in"></span> Login
                  </button>
 
                  </div>
@@ -92,7 +83,4 @@ Login
 					</div>
                					</div>
                 </div>
-        </div>
 
-
-@stop
