@@ -60,8 +60,27 @@ class SearchController extends \BaseController {
         $students = Student::join('careers','students.idcareer','=','careers.idcareer')->where('students.idstudent','=',$id)->
         select('students.idstudent','students.dni','students.firstname','students.lastname','students.image','careers.career')->get();
 
+       $skills = DB::table('studentskills')
+           ->join('skills', 'studentskills.idskill', '=', 'skills.idskill')
+           ->where('studentskills.idstudent', '=' , $id)
+           ->select('skills.skill')
+           ->get();
+
+        $projects = DB::table('projects')
+            ->join('technologiesused', 'projects.idproject', '=', 'technologiesused.idproject')
+            ->where('technologiesused.idstudent', '=' , $id)
+            ->join('technologies', 'technologiesused.idtechnology', '=', 'technologies.idtechnology')
+            ->select('projects.idstudent', 'projects.course', 'projects.duration', 'projects.description', 'projects.date', 'projects.score','technologies.technology' )
+            ->orderBy('technologiesused.idproject', 'asc')
+            ->get();
+
+
+
+        $data = array('students' => $students, 'skills' => $skills, 'projects' => $projects);
+
+
         // envia los datos a la vista
-        return $students;
+        return $data;
     }
 
 }

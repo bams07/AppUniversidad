@@ -5,7 +5,7 @@ class StudentsController extends \BaseController {
 
     public function __construct()
     {
-
+        // comprueba si se esta autenficado
         $this->beforeFilter('auth');
 
     }
@@ -18,8 +18,7 @@ class StudentsController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
-
+		// obtiene los estudiantes
         $students = Student::join('careers','students.idcareer','=','careers.idcareer')->
         select('students.idstudent','students.dni','students.firstname','students.lastname','students.image','careers.career')->get();
 
@@ -38,6 +37,7 @@ class StudentsController extends \BaseController {
 	 */
 	public function create()
 	{
+        // redirecciona a la vista de crear
         Return View::make('students.create');
 	}
 
@@ -57,7 +57,7 @@ class StudentsController extends \BaseController {
          $student->lastname = Input::get('lastname');
          $student->idcareer = Input::get('career');
 
-
+        // comprueba si se viene un archivo
         if (Input::hasFile('image-file'))
         {
             $student->image = $student->dni;
@@ -166,6 +166,82 @@ class StudentsController extends \BaseController {
         // redirecciona a la pantalla principal de students
         return Redirect::to('/admin/students');
 	}
+
+    // guarda los comentarios
+    public function saveComments()
+    {
+
+        $comment = new Comment();
+
+        $comment->idstudent = Input::get('idStudent');
+        $comment->date = Input::get('date');
+        $comment->commentary = Input::get('comment');
+
+        $comment->save();
+
+        Session::flash('message', 'Comment added by '.Auth::user()->name);
+
+        // redirecciona a la pantalla principal de students
+        return Redirect::to('/admin/students');
+
+
+    }
+
+    // obtiene todos los comentarios de un estudiante
+    public function  getCommentsStudent($id)
+    {
+
+        $comments = Comment::where('idstudent','=',$id)->get();
+
+
+        return View::make('students.comments.comments',array('comments'=>$comments));
+
+
+    }
+
+    // obtiene un comentarion en especifico
+    public function getComment($id)
+    {
+        $comments = Comment::find($id);
+
+        return $comments;
+
+
+    }
+
+    // elimina los comentarios
+    public function deleteComments($id)
+    {
+        $comments = Comment::find($id);
+
+        $comments->delete();
+
+        Session::flash('message', 'Comment deleted by '.Auth::user()->name);
+
+        // redirecciona a la pantalla principal de students
+        return Redirect::to('/admin/students');
+
+    }
+
+    // actualiza los comentarios
+    public function updateComments($id)
+    {
+
+        $comment = Comment::find($id);
+
+        $comment->date = Input::get('date');
+        $comment->commentary = Input::get('comment');
+
+        $comment->save();
+
+        Session::flash('message', 'Comment edited by '.Auth::user()->name);
+
+        // redirecciona a la pantalla principal de students
+        return Redirect::to('/admin/students');
+
+
+
+    }
 
 
 

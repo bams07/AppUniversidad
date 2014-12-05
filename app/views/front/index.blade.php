@@ -3,10 +3,12 @@
 
 @section('css')
  {{ HTML::style('css/front.css'); }}
+ {{ HTML::style('css/tabs.css'); }}
 @stop
 
 @section('js')
- {{ HTML::script('js/Students.js'); }}
+ {{ HTML::script('js/Searchs.js'); }}
+ {{ HTML::script('js/Tabs.js'); }}
 @stop
 
 
@@ -59,6 +61,6 @@
     </div>
 
 </div>
-    @include('students.show')
+    @include('front.show')
 </body>
 </html>

@@ -21,10 +21,21 @@ Route::group(array('prefix'=>'admin'),function()
         Route::post('login','LoginController@login');
         Route::get('logout','LoginController@logout',array('as' => 'logout' ))->before('auth');
 
+
+        //Ruta de comentarios
+        Route::get('students/comments/{idStudent}','StudentsController@getCommentsStudent');
+        Route::get('students/comments/{idcomment}/edit','StudentsController@getComment');
+        Route::delete('students/comments/{idcomment}','StudentsController@deleteComments');
+        Route::put('students/comments/{idcomment}','StudentsController@updateComments');
+        Route::post('students/comments','StudentsController@saveComments');
+
+
         // Rutas de mantenimiento
         Route::resource('users', 'UsersController');
         Route::resource('careers', 'CareersController');
         Route::resource('students', 'StudentsController');
+
+
 
 });
 
@@ -37,16 +48,6 @@ Route::get('/',function()
 Route::get('searchTechnology/{technology}','searchController@searchTechnology');
 Route::get('searchSkill/{skill}','searchController@searchSkill');
 Route::get('show/{id}','searchController@show');
-
-
-
-
-
-
-
-
-
-
 
 
 

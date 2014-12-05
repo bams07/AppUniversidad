@@ -29,7 +29,10 @@ Login
 
 </div>
 
+<div class="container">
  <div class="col-md-6 login">
+
+
 
             <h1 class="title-login">Universidad Tecnica Nacional</h1>
 
@@ -84,3 +87,4 @@ Login
                					</div>
                 </div>
 
+</div>
