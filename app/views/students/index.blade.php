@@ -60,12 +60,21 @@ Students
                        <td>{{$student->firstname}}</td>
                        <td>{{$student->lastname}}</td>
                        <td>{{$student->career}}</td>
-                       <td> {{--Inicio formualrio --}}
+                       <td> {{--Inicio formualrio eliminar --}}
                        {{Form::open(array('id'=>'form'.$student->idstudent,'url' => array('/admin/students', $student->idstudent),'method'=>'DELETE'))}}
                         <a type="button" id="{{$student->idstudent}}" data-title="edit" data-toggle="modal" data-target="#edit" data-placement="top" href="#" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
-                        <a type="button" href="javascript:document.getElementById('form{{$student->idstudent}}').submit()" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Delete</a>
-                           {{ Form::close() }}
-                          {{--Final del formulario--}}
+                        <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Delete</button>
+                               <div class="btn-group">
+                                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                 <span class="glyphicon glyphicon-th-list"></span>  More <span class="caret"></span>
+                                                 </button>
+                                                 <ul class="dropdown-menu" role="menu">
+                                                   <li><a href="#">Projects</a></li>
+                                                   <li><a data-toggle="modal" data-title="comments" data-target="#comments" data-placement="top" id="{{$student->idstudent}}"  href="#">Comments</a></li>
+                                                 </ul>
+                                               </div>
+                       {{ Form::close() }}
+                          {{--Final del formulario eliminar--}}
                        </td>
                        </tr>
 
@@ -83,5 +92,6 @@ Students
 
       {{--Vista del CRUD--}}
          @include('students.show')
+         @include('students.comments.modal')
          @include('students.create',array('careers'=>$careers))
          @include('students.edit',array('careers'=>$careers))

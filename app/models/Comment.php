@@ -1,6 +1,6 @@
 <?php
 
-class Comments extends Eloquent {
+class Comment extends Eloquent {
 
     protected $table = 'commentaries';
 
