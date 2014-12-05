@@ -9,6 +9,10 @@ body{
     font-family: 'Oswald', sans-serif;
 }
 
+.Skills{
+    color:black;
+}
+
 td{
     color: white;
     font-size: 2em;
@@ -58,7 +62,7 @@ th{
 }
 h1{
     font-family: 'Oswald', sans-serif;
-    color:white;
+    //color:white;
 }
 .login{
     width: 100%;
@@ -66,4 +70,8 @@ h1{
 .login a{
     font-family: 'Oswald', sans-serif;
     font-size: 2em;
+}
+
+.selectpicker{
+    width: 95%;
 }
