@@ -10,20 +10,12 @@ body{
 }
 
 .Skills{
-    color:black;
-}
-
-td{
     color: white;
     font-size: 2em;
     font-family: 'Oswald', sans-serif;
 }
 
-th{
-    color: white;
-    font-size: 2em;
-    font-family: 'Oswald', sans-serif;
-}
+
 
 .overlay {
     top: 5.5%;
@@ -75,3 +67,12 @@ h1{
 .selectpicker{
     width: 95%;
 }
+
+.widget .panel-body { padding:0px; }
+.widget .list-group { margin-bottom: 0; }
+.widget .panel-title { display:inline }
+.widget .label-info { float: right; }
+.widget li.list-group-item {border-radius: 0;border: 0;border-top: 1px solid #ddd;}
+.widget li.list-group-item:hover { background-color: rgba(86,61,124,.1); }
+.widget .mic-info { color: #666666;font-size: .9em; }
+.widget .comment-text { font-size: 1em; padding: 1%; }

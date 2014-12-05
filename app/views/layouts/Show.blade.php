@@ -53,7 +53,30 @@
 
           </div>
           <div class="tab-pane fade" id="coments">
-              <h1>coments</h1>
+
+                      <div class="panel panel-default widget">
+                          <div class="panel-heading">
+                              <span class="glyphicon glyphicon-comment"> </span>
+                              <h3 class="panel-title">
+                                  Recent Comments</h3>
+
+                          </div>
+                          <div class="panel-body">
+                              <ul class="list-group">
+                                  <li class="list-group-item">
+                                      <div class="row">
+
+                                          <div class="col-xs-10 col-md-11">
+                                              <div id="comment">
+
+                                              </div>
+
+
+                                          </div>
+                                      </div>
+                                  </li>
+
+              </div>
 
           </div>
       </div>

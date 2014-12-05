@@ -174,6 +174,7 @@ class StudentsController extends \BaseController {
         $comment = new Comment();
 
         $comment->idstudent = Input::get('idStudent');
+        $comment->iduser = Input::get('idUser');
         $comment->date = Input::get('date');
         $comment->commentary = Input::get('comment');
 

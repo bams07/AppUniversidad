@@ -25,7 +25,7 @@ p.narrow{
     height: 2px;
     background: #ddd;
     position: absolute;
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     left: 0;
     right: 0;
@@ -139,7 +139,7 @@ li:after {
 li.active:after {
     content: " ";
     position: absolute;
-    left: 46%;
+    left: 86%;
     opacity:1;
     margin: 0 auto;
     bottom: 0px;
@@ -153,6 +153,7 @@ li.active:after {
     margin: 22px auto;
     border-radius: 100%;
     padding: 0;
+    left: 42%;
 }
 
 .nav-tabs > li a:hover{
@@ -185,7 +186,7 @@ li.active:after {
 }
 
 .modal-dialog{
-    width: 60%;
+    width: 40%;
 }
 
 

@@ -18,7 +18,7 @@
 
 <div class="row">
     <div class="login" >
-     <a type="button" class="btn btn-primary pull-right login" href="login">
+     <a type="button" class="btn btn-primary pull-right login" href="admin/login">
                         <span class="glyphicon glyphicon-log-in"></span> Login
                      </a>
 

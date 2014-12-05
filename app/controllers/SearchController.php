@@ -57,7 +57,7 @@ class SearchController extends \BaseController {
 
     public function show($id)
     {
-        $students = Student::join('careers','students.idcareer','=','careers.idcareer')->where('students.idstudent','=',$id)->
+       $students = Student::join('careers','students.idcareer','=','careers.idcareer')->where('students.idstudent','=',$id)->
         select('students.idstudent','students.dni','students.firstname','students.lastname','students.image','careers.career')->get();
 
        $skills = DB::table('studentskills')
@@ -66,17 +66,42 @@ class SearchController extends \BaseController {
            ->select('skills.skill')
            ->get();
 
+
+
+       /* $course = DB::table('coursesprojects')
+            ->join('projects', 'coursesprojects.idproject', '=', 'projects.idproject')
+            ->join('courses', 'coursesprojects.idcourse', '=', 'courses.idcourse')
+            ->select('courses.course','projects.idstudent', 'projects.duration', 'projects.description', 'projects.date', 'projects.score')
+            ->get();*/
+
         $projects = DB::table('projects')
+            ->join('technologiesused', 'projects.idproject', '=', 'technologiesused.idproject')
+            ->join('technologies', 'technologiesused.idtechnology', '=', 'technologies.idtechnology')
+            ->join('courses', 'projects.idcourse', '=', 'courses.idcourse')
+            ->where('technologiesused.idstudent', '=' , $id)
+            ->select('projects.idstudent', 'projects.duration', 'projects.description', 'projects.date', 'projects.score','technologies.technology','courses.course' )
+            ->orderBy('technologiesused.idproject', 'asc')
+            ->get();
+
+        /*$projects = DB::table('projects')
             ->join('technologiesused', 'projects.idproject', '=', 'technologiesused.idproject')
             ->where('technologiesused.idstudent', '=' , $id)
             ->join('technologies', 'technologiesused.idtechnology', '=', 'technologies.idtechnology')
-            ->select('projects.idstudent', 'projects.course', 'projects.duration', 'projects.description', 'projects.date', 'projects.score','technologies.technology' )
+            ->select('projects.idstudent',  'projects.duration', 'projects.description', 'projects.date', 'projects.score','technologies.technology' )
             ->orderBy('technologiesused.idproject', 'asc')
+            ->get();*/
+
+
+        $commentaries = DB::table('commentaries')
+            ->join('students', 'commentaries.idstudent', '=', 'students.idstudent')
+            ->where('commentaries.idstudent', '=' , $id)
+            ->join('users', 'commentaries.iduser', '=', 'users.idUser')
+            ->select('commentaries.date','commentaries.commentary','students.firstname','users.username' )
             ->get();
 
 
 
-        $data = array('students' => $students, 'skills' => $skills, 'projects' => $projects);
+        $data = array('students' => $students, 'skills' => $skills, 'projects' => $projects, 'comments'=> $commentaries);
 
 
         // envia los datos a la vista

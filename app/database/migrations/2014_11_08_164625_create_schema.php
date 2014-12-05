@@ -97,18 +97,6 @@ class CreateSchema extends Migration
             $table->foreign('idskill')->references('idskill')->on('skills');
         });
 
-        //TABLA PROYECTOS DEL ESTUDIANTE
-        Schema::create('projects', function ($table) {
-
-            $table->engine = 'InnoDB';
-            $table->increments('idproject');
-            $table->integer('idstudent')->unsigned();
-            $table->string('duration');
-            $table->string('description');
-            $table->date('date');
-            $table->integer('score');
-        });
-
         //TABLA CURSOS
         Schema::create('courses', function ($table) {
             $table->engine = 'InnoDB';
@@ -116,8 +104,23 @@ class CreateSchema extends Migration
             $table->string('course');
         });
 
+        //TABLA PROYECTOS DEL ESTUDIANTE
+        Schema::create('projects', function ($table) {
+
+            $table->engine = 'InnoDB';
+            $table->increments('idproject');
+            $table->integer('idstudent')->unsigned();
+            $table->integer('idcourse')->unsigned();
+            $table->string('duration');
+            $table->string('description');
+            $table->date('date');
+            $table->integer('score');
+        });
+
+
+
         //TABLA CURSOS DE CADA PROYECTO
-        Schema::create('coursesprojects', function ($table) {
+        /*Schema::create('coursesprojects', function ($table) {
 
             $table->engine = 'InnoDB';
             $table->increments('idcourseproject');
@@ -127,13 +130,14 @@ class CreateSchema extends Migration
             //SE CREA LA FORANEA A PROYECTOS
             $table->foreign('idproject')->references('idproject')->on('projects');
             $table->foreign('idcourse')->references('idcourse')->on('courses');
-        });
+        });*/
 
 
 
         //LLAVES FORANEAS DE LA TABLA PROYECTOS DEL ESTUDIANTE CON LA TABLA ESTUDIANTES
         Schema::table('projects', function ($table) {
             $table->foreign('idstudent')->references('idstudent')->on('students');
+            $table->foreign('idcourse')->references('idcourse')->on('courses');
         });
 
         //TABLA COMENTARIOS DEL ESTUDIANTE

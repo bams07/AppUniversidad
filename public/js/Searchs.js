@@ -59,11 +59,11 @@ $(document).ready(function () {
 
                     for (i = 0; i < data.length; i++) {
                         if (i == 0) {
-                            $student += "<th>DNI</th><th>First Name</th><th>Last Name</th>";
+                            $student += '<th class="Skills">Image</th>><th class="Skills">DNI</th>><th class="Skills">First Name</th><th class="Skills">Last Name</th>';
                         }
-                        $student += '<tr><td><a type="button" href="#"   data-title="showSearch" data-toggle="modal" data-target="#showSearch" data-placement="top"  id="' + data[i].idstudent + '" >';
+                        $student += '<tr><td class="Skills"><a type="button" href="#"   data-title="showSearch" data-toggle="modal" data-target="#showSearch" data-placement="top"  id="' + data[i].idstudent + '" >';
                         $student += '<img id="student" class="image-student-list" src="/images/students/' + data[i].dni + '" ></a></td>'
-                        $student += '<td>' + data[i].firstname + '</td><td>' + data[i].firstname + '</td></tr>';
+                        $student += '<td class="Skills">' + data[i].dni + '</td><td class="Skills">' + data[i].firstname + '</td><td class="Skills">' + data[i].firstname + '</td></tr>';
 
 
                     }
@@ -86,6 +86,7 @@ $(document).ready(function () {
             var idStudent = this.id;
             $skills = "";
             $projects = "";
+            $comments = "";
 
             // obtiene los datos del usuario
             $.get(this.baseURI + '/show/' + idStudent, function (data) {
@@ -112,7 +113,7 @@ $(document).ready(function () {
 
                 for (i = 0; i < data['skills'].length; i++){
 
-                    $skills += '<tr></tr><td class="Skills">' + data['skills'][i].skill + '</td></tr>';
+                    $skills += '<tr></tr><td>' + data['skills'][i].skill + '</td></tr>';
 
                 }
                 document.getElementById('tableSkills').innerHTML = $skills;
@@ -120,14 +121,14 @@ $(document).ready(function () {
                 for (j = 0; j < data['projects'].length; j++){
 
                     if (j == 0) {
-                        $projects += '<th class="Skills">Course</th><th class="Skills">Duration</th><th class="Skills">Description</th><th class="Skills">Date</th><th class="Skills">score</th><th class="Skills">Technology</th>';
+                        $projects += '<th >Course</th><th>Duration</th><th>Description</th><th>Date</th><th>score</th><th>Technology</th>';
                     }
-                    $projects += '<tr><td class="Skills">' + data['projects'][j].course + '</td>';
-                    $projects += '<td class="Skills">' + data['projects'][j].duration + '</td>';
-                    $projects += '<td class="Skills">' + data['projects'][j].description + '</td>';
-                    $projects += '<td class="Skills">' + data['projects'][j].date + '</td>';
-                    $projects += '<td class="Skills">' + data['projects'][j].score + '</td>';
-                    $projects += '<td class="Skills"><select class="selectpicker" data-style="btn-success" size="2">';
+                    $projects += '<tr><td>' + data['projects'][j].course + '</td>';
+                    $projects += '<td>' + data['projects'][j].duration + '</td>';
+                    $projects += '<td>' + data['projects'][j].description + '</td>';
+                    $projects += '<td>' + data['projects'][j].date + '</td>';
+                    $projects += '<td>' + data['projects'][j].score + '</td>';
+                    $projects += '<td><select class="selectpicker" data-style="btn-success" size="2">';
                     $projects += '<option>' +data['projects'][j].technology + '</option>';
                     for (k = j + 1; k < data['projects'].length; k++) {
 
@@ -147,6 +148,12 @@ $(document).ready(function () {
                 }
                 document.getElementById('tableProjects').innerHTML = $projects;
 
+                for(l = 0; l < data['comments'].length; l++){
+                    $comments += '<div class="comment-text">' + data['comments'][l].commentary + '</div>';
+                    $comments += '<div class="mic-info"> By:' + data['comments'][l].firstname + ' on:' + data['comments'][l].date + '</div>';
+
+                }
+                document.getElementById('comment').innerHTML = $comments;
             });
         });
     }
