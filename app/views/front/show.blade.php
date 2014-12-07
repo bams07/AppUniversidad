@@ -6,7 +6,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <h4 class="modal-title custom_align" id="heading-user-show">User detail</h4>
                                     <div class="board">
-                                        <!-- <h2>Welcome to IGHALO!<sup>™</sup></h2>-->
+
                                         <div class="board-inner">
                                         <ul class="nav nav-tabs" id="myTab">
                                         <div class="liner"></div>

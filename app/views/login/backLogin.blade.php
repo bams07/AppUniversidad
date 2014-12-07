@@ -37,7 +37,7 @@ Login
             <h1 class="title-login">Universidad Tecnica Nacional</h1>
 
 
-                <div class="form-group">
+
 
                 {{--Recive un mensaje por session el cual muestra un error si fuera el caso --}}
 
@@ -51,6 +51,7 @@ Login
                {{--Inicio formualrio --}}
               {{ Form::open(array('url' => '/admin/login')) }}
 
+                <div class="form-group">
 
                 {{Form::label('username','Username:')}}
 
