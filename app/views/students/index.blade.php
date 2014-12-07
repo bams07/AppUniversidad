@@ -19,14 +19,20 @@ Students
 
 
 @section('content')
-
+        {{--}}RECIBE EL MENSAJE SI FUERA CORRECTO CUANDO SE ALMACENA ALGUN DATO O EDITA DE MALA MANERA Y LO MUESTRA--}}
         @if (Session::has('message'))
             <div class="alert alert-success alert-dismissible" role="alert">
               <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
               {{Session::get('message')}}
             </div>
         @endif
-
+        {{--RECIBE EL MENSAJE SI FUERA ERROR CUANDO SE ALMACENA ALGUN DATO O EDITA DE MALA MANERA Y LO MUESTRA--}}
+        @if (Session::has('error'))
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                      {{Session::get('error')}}
+                    </div>
+        @endif
         {{--Inicio row --}}
         <div class="row">
 

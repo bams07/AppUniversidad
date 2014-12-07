@@ -54,7 +54,7 @@ class UsersController extends \BaseController {
 	public function store()
 	{
         // guarda la informacion del usuario con sus datos
-
+        $contador=0;
         $user = new User;
         $user->username = Input::get('username'); // toma los datos del formulario por su name
         $user->name = Input::get('name');
@@ -62,14 +62,30 @@ class UsersController extends \BaseController {
         $user->password = Hash::make(Input::get('password'));
         $user->rol = Input::get('rol');
 
-        // guarda los datos
-        $user->save();
-
-        // mensaje
-        Session::flash('message', 'Successfully created user');
-
-        // redirecciona a la pantalla principal de users
-        return Redirect::to('/admin/users');
+        $validar = DB::table('users')->select('dni')->where('dni', '=' , $user->dni)->get();
+        foreach($validar as $pru) {
+            $contador++;
+        }
+        if ($contador >0){
+            // mensaje
+            Session::flash('error', 'The user has been previously entered');
+            // redirecciona a la pantalla principal de users
+            return Redirect::to('/admin/users');
+        }else{
+            if ($user->username ===''||  $user->name==='' ||  $user->dni===''){
+                // mensaje
+                Session::flash('error', 'Error blank fields');
+                // redirecciona a la pantalla principal de users
+                return Redirect::to('/admin/users');
+            }else{
+                // guarda los datos
+                $user->save();
+                // mensaje
+                Session::flash('message', 'Successfully created user');
+                // redirecciona a la pantalla principal de users
+                return Redirect::to('/admin/users');
+            }
+        }
 	}
 
 	/**

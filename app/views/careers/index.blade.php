@@ -22,6 +22,12 @@ Careers
                {{Session::get('message')}}
              </div>
          @endif
+         @if (Session::has('error'))
+              <div class="alert alert-success alert-danger" role="alert">
+                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                {{Session::get('message')}}
+              </div>
+          @endif
 
          {{--Inicio row --}}
          <div class="row">

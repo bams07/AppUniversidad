@@ -53,28 +53,51 @@ class StudentsController extends \BaseController {
 
          $student = new Student;
          $student->dni = Input::get('dni'); // toma los datos del formulario por su name
-         $student->firstname = Input::get('firstname');
-         $student->lastname = Input::get('lastname');
-         $student->idcareer = Input::get('career');
 
-        // comprueba si se viene un archivo
-        if (Input::hasFile('image-file'))
-        {
-            $student->image = $student->dni;
-            Input::file('image-file')->move(public_path()."/images/students/",$student->dni);
+        $contador=0;
+        //VALIDAMOS SI EXISTE ALGUN ESTUDIANTE CON ESE NUMERO DE CEDULA
+        $validar = DB::table('students')->select('dni')->where('dni', '=' , $student->dni)->get();
 
-        }else{
-            $student->image = 'student_pic.png';
-        }
+        //RECORREMOS EL RESULTADO DE LA BASE DE DATOS
+        foreach($validar as $pru) {
+            $contador++;
+          }
+        //VALIDA QUE SI ENTRA AL FOREACH ES QUE YA ESTA HAY UN ESTUDIANTE INGRESADO CON ESE NUMERO DE CEDULA
+         if ($contador >0){
+             // mensaje
+             Session::flash('error', 'The student has been previously entered');
+             // redirecciona a la pantalla principal de students
+             return Redirect::to('/admin/students');
 
-        // guarda los datos
-         $student->save();
+         }else{
+              $student->firstname = Input::get('firstname');
+              $student->lastname = Input::get('lastname');
+              $student->idcareer = Input::get('career');
+             //VALIDA QUE SI LOS CAMPOS VIENEN EN BLANCO
+               if ($student->firstame==='' ||$student->lastname==='' ||$student->dni==='')
+               {
+                   // mensaje
+                   Session::flash('error', 'Error blank fields');
+                   // redirecciona a la pantalla principal de students
+                   return Redirect::to('/admin/students');
+               }else{
+                   // comprueba si se viene un archivo
+                   if (Input::hasFile('image-file'))
+                   {
+                       $student->image = $student->dni;
+                       Input::file('image-file')->move(public_path()."/images/students/",$student->dni);
 
-        // mensaje
-        Session::flash('message', 'Successfully created student');
-
-        // redirecciona a la pantalla principal de students
-        return Redirect::to('/admin/students');
+                   }else{
+                       $student->image = 'student_pic.png';
+                   }
+                   // guarda los datos
+                   $student->save();
+                   // mensaje
+                   Session::flash('message', 'Successfully created student');
+                   // redirecciona a la pantalla principal de students
+                   return Redirect::to('/admin/students');
+               }
+         }
 	}
 
 	/**

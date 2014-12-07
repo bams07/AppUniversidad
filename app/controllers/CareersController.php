@@ -51,14 +51,25 @@ class CareersController extends \BaseController {
         //tomamos el dato del input name que fue pasado por metodo post
         $name = Input::get('career');
 
-        //Hacemos insert a la tabla carrera.
-        Career::insert(array("career" => $name));//Career es el nombre del modelo.
+        //VALIDACION DE QUE EL CAMPO NO PUEDA INGRESAR EN BLANCO
+        if ($name === ''){
+            // mensaje
+            Session::flash('error', 'Error blank fields');
 
-        // mensaje
-        Session::flash('message', 'Successfully created user');
+            // redirecciona a la pantalla principal de careers
+            return Redirect::to('/admin/careers');
+        }else{
+            //Hacemos insert a la tabla carrera.
+            Career::insert(array("career" => $name));//Career es el nombre del modelo.
 
-        // redirecciona a la pantalla principal de careers
-        return Redirect::to('/admin/careers');
+            // mensaje
+            Session::flash('message', 'Successfully created user');
+
+            // redirecciona a la pantalla principal de careers
+            return Redirect::to('/admin/careers');
+        }
+
+
 	}
 
 	/**
@@ -70,8 +81,9 @@ class CareersController extends \BaseController {
 	 */
 	public function show($id)
 	{
+
         // devuelve los datos de carreras
-        $careers = Career::find($id);
+            $careers = Career::find($id);
 
         // envia los datos a la vista
         return  $careers;
