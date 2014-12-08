@@ -16,13 +16,12 @@
 </head>
 <body>
 
+    <br>
 <div class="row">{{--Inicio del div  class row--}}
-    <div class="login" >{{--Inicio del div  class login--}}
-     <a type="button" class="btn btn-primary pull-right login" href="admin/login">
-                        <span class="glyphicon glyphicon-log-in"></span> Login
-                     </a>
-    </div>{{--Fin del div  class login--}}
+
     <div class="overlay">
+    <br>
+
     <center><h1>Universidad Tecnica Nacional</h1></center>
 
 
@@ -30,11 +29,12 @@
     	<div class="row">{{--Inicio del div  class row--}}
                <div id="custom-search-input">{{--Inicio del div  id custom-search-input--}}
                 <div class="input-group col-md-12">{{--Inicio del div  class input-group col-md-1--}}
-                    <input type="text" id="search" class=" search search-query form-control" placeholder="Search" />
+                    <input type="text" id="search" class=" search search-query form-control" placeholder="Search"  />
                 </div>{{--Fin del div  class input-group col-md-12--}}
                </div>{{--Fin del div  id custom-search-input--}}
-
+            <br>
                 <div class="form-group option">{{--Inicio del div  class option--}}
+        <div class="input-group col-md-5">{{--Inicio del div  class input-group col-md-1--}}
                     {{--Inicio de select--}}
                      <select name="option" id="option" class="form-control">
 
@@ -44,8 +44,10 @@
                       </select>{{--Fin de select--}}
 
                        </div>{{--Fin del div  class option--}}
+                       </div>{{--Fin del div  class option--}}
 
                  </div>{{--Fin del div  class row--}}
+
 
                 {{--Inicio de la tabla--}}
                <table id="mytable" class="table table-bordred ">
@@ -56,6 +58,7 @@
                     </tbody>
 
                   </table>{{--Fin de la tabla--}}
+
     	</div>{{--Fin del div  class container--}}
     </div>{{--Fin del div  class overlay--}}
 

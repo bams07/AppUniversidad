@@ -1,6 +1,9 @@
 // se activa cuando el documento este cargado
 $(document).ready(function () {
 
+    document.getElementById('search').focus();
+
+
     // Carga la imagen en el espacio de la imagen
     $('#image-file').change(function() {
 
